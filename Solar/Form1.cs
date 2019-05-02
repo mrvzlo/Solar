@@ -10,10 +10,10 @@ namespace Solar
 	public partial class Form1 : Form
     {
         private const int Year = 364;
-        private const int PictureSize = 1000;
+        private const int PictureSize = 1200;
         private List<SpaceObj> SpaceObjs { get; set; }
+        private DisplayType displayType { get; set; }
         private Logic Core { get; }
-        private int TieType { get; set; }
         private double SpeedUp { get; set; }
         private double Day { get; set; }
         private bool ShowOrbits { get; set; }
@@ -27,8 +27,8 @@ namespace Solar
 
 		public Form1()
         {
+            displayType = DisplayType.ShowAll;
             Day = 0;
-            TieType = 0;
             Core = new Logic();
             SpaceObjs = Core.Create();
             TempPoint = null;
@@ -37,13 +37,11 @@ namespace Solar
             CreateInfo();
             SpeedUp = Convert.ToDouble(speedometr.Value);
             speedometr.Maximum = 100;
-            for (var i = 0; i < SpaceObjs.Count; i++)
-			{
-				list1.Items.Add(SpaceObjs[i].Name);
-				list2.Items.Add(SpaceObjs[i].Name);
-				listbox.Items.Add(SpaceObjs[i].Name);
-				listbox.SetItemChecked(i,true);
-			}
+            foreach (var t in SpaceObjs)
+            {
+                list1.Items.Add(t.Name);
+                list2.Items.Add(t.Name);
+            }
 			list1.SelectedIndex = 0;
 			list2.SelectedIndex = 0;
             DrawOrbitAndPlanets(true);
@@ -100,14 +98,23 @@ namespace Solar
             if (ShowOrbits) gOrb.Clear(Color.Transparent);
             gObj.Clear(Color.Transparent);
 
-            foreach (var obj in SpaceObjs)
+            for (var i = 0; i < SpaceObjs.Count; i++)
             {
-                if (!obj.Draw) continue;
-                DrawCircle(Core.GetObjectView(obj,PictureSize), obj.Color, gObj);
+                var obj = SpaceObjs[i];
+                switch (displayType)
+                {
+                    case DisplayType.HideAll:
+                    case DisplayType.ChosenOnly when i != _p1 && i != _p2:
+                    case DisplayType.ChosenWithParents when i != _p1 && i != _p2 && SpaceObjs[i] != SpaceObjs[_p1].Parent && SpaceObjs[i] != SpaceObjs[_p2].Parent && SpaceObjs[i].Parent!=null:
+                        continue;
+                }
+
+                DrawCircle(Core.GetObjectView(obj, PictureSize), obj.Color, gObj);
                 if (ShowOrbits)
                     DrawEllipse(Core.GetOrbit(obj, PictureSize), obj.Color, gOrb);
             }
-			Statistics();
+
+            Statistics();
             if (reload) RedrawLayers();
         }
 
@@ -237,17 +244,34 @@ namespace Solar
             if (timer1.Enabled) Toggle();
         }
 
-		private void listbox_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			for (var i=0; i<listbox.Items.Count; i++)
-                SpaceObjs[i].Draw = listbox.GetItemChecked(i);
-            if (!timer1.Enabled) DrawOrbitAndPlanets(true);
-        }
-
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             TempPoint = null;
             _p1 = list1.SelectedIndex;
+        }
+
+        private void HideAllRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            displayType = DisplayType.HideAll;
+            DrawOrbitAndPlanets(true);
+        }
+
+        private void ChosenWithParentsRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            displayType = DisplayType.ChosenWithParents;
+            DrawOrbitAndPlanets(true);
+        }
+
+        private void ChosenOnlyRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            displayType = DisplayType.ChosenOnly;
+            DrawOrbitAndPlanets(true);
+        }
+
+        private void ShowAllRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            displayType = DisplayType.ShowAll;
+            DrawOrbitAndPlanets(true);
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)

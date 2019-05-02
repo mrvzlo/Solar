@@ -40,20 +40,23 @@
             this.Restart = new System.Windows.Forms.Button();
             this.list2 = new System.Windows.Forms.ComboBox();
             this.list1 = new System.Windows.Forms.ComboBox();
-            this.listbox = new System.Windows.Forms.CheckedListBox();
+            this.HideAllRadio = new System.Windows.Forms.RadioButton();
+            this.ChosenOnlyRadio = new System.Windows.Forms.RadioButton();
+            this.ChosenWithParentsRadio = new System.Windows.Forms.RadioButton();
+            this.ShowAllRadio = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.picturePlanets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speedometr)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
             // 
-            this.timer1.Interval = 10;
+            this.timer1.Interval = 18;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Start
             // 
             this.Start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Start.BackColor = System.Drawing.Color.Navy;
+            this.Start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Start.Cursor = System.Windows.Forms.Cursors.Default;
             this.Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -83,18 +86,18 @@
             // Clear
             // 
             this.Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Clear.BackColor = System.Drawing.Color.Navy;
+            this.Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Clear.Cursor = System.Windows.Forms.Cursors.Default;
             this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear.ForeColor = System.Drawing.Color.White;
             this.Clear.Location = new System.Drawing.Point(775, 40);
             this.Clear.Margin = new System.Windows.Forms.Padding(0);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(75, 40);
             this.Clear.TabIndex = 7;
-            this.Clear.Text = "C";
+            this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = false;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
@@ -115,37 +118,36 @@
             // Reverse
             // 
             this.Reverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Reverse.BackColor = System.Drawing.Color.Navy;
+            this.Reverse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Reverse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Reverse.Cursor = System.Windows.Forms.Cursors.Default;
             this.Reverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Reverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Reverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Reverse.ForeColor = System.Drawing.Color.White;
             this.Reverse.Location = new System.Drawing.Point(700, 80);
             this.Reverse.Margin = new System.Windows.Forms.Padding(0);
             this.Reverse.Name = "Reverse";
             this.Reverse.Size = new System.Drawing.Size(75, 40);
             this.Reverse.TabIndex = 12;
-            this.Reverse.Text = "↷";
-            this.Reverse.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Reverse.Text = "Invert";
             this.Reverse.UseVisualStyleBackColor = false;
             this.Reverse.Click += new System.EventHandler(this.Reverse_Click);
             // 
             // Orbits
             // 
             this.Orbits.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Orbits.BackColor = System.Drawing.Color.Navy;
+            this.Orbits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Orbits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Orbits.Cursor = System.Windows.Forms.Cursors.Default;
             this.Orbits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Orbits.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Orbits.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Orbits.ForeColor = System.Drawing.Color.White;
             this.Orbits.Location = new System.Drawing.Point(700, 40);
             this.Orbits.Margin = new System.Windows.Forms.Padding(0);
             this.Orbits.Name = "Orbits";
             this.Orbits.Size = new System.Drawing.Size(75, 40);
             this.Orbits.TabIndex = 13;
-            this.Orbits.Text = "O";
+            this.Orbits.Text = "Orbits";
             this.Orbits.UseVisualStyleBackColor = false;
             this.Orbits.Click += new System.EventHandler(this.Orbits_Click);
             // 
@@ -153,7 +155,6 @@
             // 
             this.speedometr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.speedometr.BackColor = System.Drawing.Color.Black;
-            this.speedometr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.speedometr.DecimalPlaces = 1;
             this.speedometr.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.speedometr.ForeColor = System.Drawing.Color.White;
@@ -162,8 +163,8 @@
             0,
             0,
             65536});
-            this.speedometr.Location = new System.Drawing.Point(700, 628);
-            this.speedometr.Margin = new System.Windows.Forms.Padding(0);
+            this.speedometr.Location = new System.Drawing.Point(700, 631);
+            this.speedometr.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.speedometr.Maximum = new decimal(new int[] {
             10,
             0,
@@ -175,7 +176,7 @@
             0,
             65536});
             this.speedometr.Name = "speedometr";
-            this.speedometr.Size = new System.Drawing.Size(150, 26);
+            this.speedometr.Size = new System.Drawing.Size(150, 30);
             this.speedometr.TabIndex = 15;
             this.speedometr.Value = new decimal(new int[] {
             1,
@@ -187,18 +188,18 @@
             // Restart
             // 
             this.Restart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Restart.BackColor = System.Drawing.Color.Navy;
+            this.Restart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Restart.Cursor = System.Windows.Forms.Cursors.Default;
             this.Restart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Restart.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.Restart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Restart.ForeColor = System.Drawing.Color.White;
             this.Restart.Location = new System.Drawing.Point(775, 80);
             this.Restart.Margin = new System.Windows.Forms.Padding(0);
             this.Restart.Name = "Restart";
             this.Restart.Size = new System.Drawing.Size(75, 40);
             this.Restart.TabIndex = 16;
-            this.Restart.Text = "R";
+            this.Restart.Text = "Reset";
             this.Restart.UseVisualStyleBackColor = false;
             this.Restart.Click += new System.EventHandler(this.Restart_Click);
             // 
@@ -209,8 +210,8 @@
             this.list2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.list2.ForeColor = System.Drawing.Color.White;
             this.list2.FormattingEnabled = true;
-            this.list2.Location = new System.Drawing.Point(700, 474);
-            this.list2.Margin = new System.Windows.Forms.Padding(0);
+            this.list2.Location = new System.Drawing.Point(700, 555);
+            this.list2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.list2.Name = "list2";
             this.list2.Size = new System.Drawing.Size(150, 32);
             this.list2.TabIndex = 18;
@@ -223,36 +224,77 @@
             this.list1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.list1.ForeColor = System.Drawing.Color.White;
             this.list1.FormattingEnabled = true;
-            this.list1.Location = new System.Drawing.Point(700, 511);
-            this.list1.Margin = new System.Windows.Forms.Padding(0);
+            this.list1.Location = new System.Drawing.Point(700, 593);
+            this.list1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.list1.Name = "list1";
             this.list1.Size = new System.Drawing.Size(150, 32);
             this.list1.TabIndex = 19;
             this.list1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // listbox
+            // HideAllRadio
             // 
-            this.listbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.listbox.BackColor = System.Drawing.Color.Black;
-            this.listbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listbox.CheckOnClick = true;
-            this.listbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listbox.ForeColor = System.Drawing.Color.White;
-            this.listbox.FormattingEnabled = true;
-            this.listbox.Location = new System.Drawing.Point(700, 261);
-            this.listbox.Margin = new System.Windows.Forms.Padding(0);
-            this.listbox.Name = "listbox";
-            this.listbox.Size = new System.Drawing.Size(150, 210);
-            this.listbox.TabIndex = 21;
-            this.listbox.SelectedIndexChanged += new System.EventHandler(this.listbox_SelectedIndexChanged);
+            this.HideAllRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.HideAllRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.HideAllRadio.ForeColor = System.Drawing.Color.White;
+            this.HideAllRadio.Location = new System.Drawing.Point(700, 525);
+            this.HideAllRadio.Name = "HideAllRadio";
+            this.HideAllRadio.Size = new System.Drawing.Size(150, 24);
+            this.HideAllRadio.TabIndex = 20;
+            this.HideAllRadio.Text = "Hide all";
+            this.HideAllRadio.UseVisualStyleBackColor = true;
+            this.HideAllRadio.CheckedChanged += new System.EventHandler(this.HideAllRadio_CheckedChanged);
+            // 
+            // ChosenOnlyRadio
+            // 
+            this.ChosenOnlyRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChosenOnlyRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.ChosenOnlyRadio.ForeColor = System.Drawing.Color.White;
+            this.ChosenOnlyRadio.Location = new System.Drawing.Point(700, 495);
+            this.ChosenOnlyRadio.Name = "ChosenOnlyRadio";
+            this.ChosenOnlyRadio.Size = new System.Drawing.Size(150, 24);
+            this.ChosenOnlyRadio.TabIndex = 21;
+            this.ChosenOnlyRadio.Text = "Chosen only";
+            this.ChosenOnlyRadio.UseVisualStyleBackColor = true;
+            this.ChosenOnlyRadio.CheckedChanged += new System.EventHandler(this.ChosenOnlyRadio_CheckedChanged);
+            // 
+            // ChosenWithParentsRadio
+            // 
+            this.ChosenWithParentsRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChosenWithParentsRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.ChosenWithParentsRadio.ForeColor = System.Drawing.Color.White;
+            this.ChosenWithParentsRadio.Location = new System.Drawing.Point(700, 445);
+            this.ChosenWithParentsRadio.Name = "ChosenWithParentsRadio";
+            this.ChosenWithParentsRadio.Size = new System.Drawing.Size(150, 44);
+            this.ChosenWithParentsRadio.TabIndex = 22;
+            this.ChosenWithParentsRadio.Text = "Chosen with parents";
+            this.ChosenWithParentsRadio.UseVisualStyleBackColor = true;
+            this.ChosenWithParentsRadio.CheckedChanged += new System.EventHandler(this.ChosenWithParentsRadio_CheckedChanged);
+            // 
+            // ShowAllRadio
+            // 
+            this.ShowAllRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShowAllRadio.Checked = true;
+            this.ShowAllRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.ShowAllRadio.ForeColor = System.Drawing.Color.White;
+            this.ShowAllRadio.Location = new System.Drawing.Point(700, 415);
+            this.ShowAllRadio.Name = "ShowAllRadio";
+            this.ShowAllRadio.Size = new System.Drawing.Size(150, 24);
+            this.ShowAllRadio.TabIndex = 23;
+            this.ShowAllRadio.TabStop = true;
+            this.ShowAllRadio.Text = "Show all";
+            this.ShowAllRadio.UseVisualStyleBackColor = true;
+            this.ShowAllRadio.CheckedChanged += new System.EventHandler(this.ShowAllRadio_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(850, 700);
+            this.Controls.Add(this.ShowAllRadio);
+            this.Controls.Add(this.ChosenWithParentsRadio);
+            this.Controls.Add(this.ChosenOnlyRadio);
+            this.Controls.Add(this.HideAllRadio);
             this.Controls.Add(this.picturePlanets);
-            this.Controls.Add(this.listbox);
             this.Controls.Add(this.list1);
             this.Controls.Add(this.list2);
             this.Controls.Add(this.Restart);
@@ -284,7 +326,10 @@
 		private System.Windows.Forms.Button Restart;
 		private System.Windows.Forms.ComboBox list2;
 		private System.Windows.Forms.ComboBox list1;
-		private System.Windows.Forms.CheckedListBox listbox;
+        private System.Windows.Forms.RadioButton HideAllRadio;
+        private System.Windows.Forms.RadioButton ChosenOnlyRadio;
+        private System.Windows.Forms.RadioButton ChosenWithParentsRadio;
+        private System.Windows.Forms.RadioButton ShowAllRadio;
     }
 }
 

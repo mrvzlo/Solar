@@ -25,7 +25,7 @@ namespace Solar
                 Color = Color.SkyBlue,
                 Step = DaysOfYearToStep(364),
                 Radius = 16,
-                Distance = 60,
+                Distance = 37,
                 Parent = sun
             };
             var venus = new SpaceObj
@@ -34,7 +34,7 @@ namespace Solar
                 Color = Color.Moccasin,
                 Step = DaysOfYearToStep(234),
                 Radius = 16,
-                Distance = 40,
+                Distance = 25,
                 Parent = sun
             };
             var mercury = new SpaceObj
@@ -43,7 +43,7 @@ namespace Solar
                 Color = Color.Gray,
                 Step = DaysOfYearToStep(91),
                 Radius = 8,
-                Distance = 20,
+                Distance = 13,
                 Parent = sun
             };
             var moon = new SpaceObj
@@ -61,28 +61,37 @@ namespace Solar
                 Color = Color.OrangeRed,
                 Step = DaysOfYearToStep(364*2),
                 Radius = 13,
-                Distance = 80,
+                Distance = 55,
                 Parent = sun
             };
             var fobos = new SpaceObj
             {
                 Name = "Fobos",
                 Color = Color.Gray,
-                Step = DaysOfYearToStep(26),
-                Radius = 3,
-                Distance = 6,
+                Step = DaysOfYearToStep(13),
+                Radius = 4,
+                Distance = 4,
                 Parent = mars
             };
             var demos = new SpaceObj
             {
                 Name = "Demos",
                 Color = Color.Gray,
-                Step = DaysOfYearToStep(26),
+                Step = DaysOfYearToStep(52),
                 Radius = 3,
                 Distance = 6,
                 Parent = mars,
                 StartDegree = Math.PI*3/2,
                 Degree = Math.PI * 3 / 2
+            };
+            var jupiter = new SpaceObj
+            {
+                Name = "Jupiter",
+                Color = Color.PeachPuff,
+                Step = DaysOfYearToStep(364*3),
+                Radius = 30,
+                Distance = 90,
+                Parent = sun
             };
             spaceObjs.Add(sun);
             spaceObjs.Add(mercury);
@@ -92,6 +101,7 @@ namespace Solar
             spaceObjs.Add(moon);
             spaceObjs.Add(fobos);
             spaceObjs.Add(demos);
+            spaceObjs.Add(jupiter);
             return spaceObjs;
         }
 

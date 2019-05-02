@@ -10,7 +10,6 @@ namespace Solar
         public double Degree { get; set; }
         public double StartDegree { get; set; }
         public double Radius { get; set; }
-        public bool Draw { get; set; }
         public int Distance { get; set; }
         public int Dir { get; set; }
         public string Name { get; set; }
@@ -18,7 +17,6 @@ namespace Solar
 
         public SpaceObj()
         {
-            Draw = true;
             Parent = null;
             Dir = 1;
             StartDegree = Math.PI/2;
