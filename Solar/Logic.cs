@@ -59,10 +59,30 @@ namespace Solar
             {
                 Name = "Mars",
                 Color = Color.OrangeRed,
-                Step = DaysOfYearToStep(767),
+                Step = DaysOfYearToStep(364*2),
                 Radius = 13,
                 Distance = 80,
                 Parent = sun
+            };
+            var fobos = new SpaceObj
+            {
+                Name = "Fobos",
+                Color = Color.Gray,
+                Step = DaysOfYearToStep(26),
+                Radius = 3,
+                Distance = 6,
+                Parent = mars
+            };
+            var demos = new SpaceObj
+            {
+                Name = "Demos",
+                Color = Color.Gray,
+                Step = DaysOfYearToStep(26),
+                Radius = 3,
+                Distance = 6,
+                Parent = mars,
+                StartDegree = Math.PI*3/2,
+                Degree = Math.PI * 3 / 2
             };
             spaceObjs.Add(sun);
             spaceObjs.Add(mercury);
@@ -70,6 +90,8 @@ namespace Solar
             spaceObjs.Add(earth);
             spaceObjs.Add(mars);
             spaceObjs.Add(moon);
+            spaceObjs.Add(fobos);
+            spaceObjs.Add(demos);
             return spaceObjs;
         }
 

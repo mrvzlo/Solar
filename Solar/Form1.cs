@@ -108,7 +108,7 @@ namespace Solar
                     DrawEllipse(Core.GetOrbit(obj, PictureSize), obj.Color, gOrb);
             }
 			Statistics();
-            if (reload) CombineLayers();
+            if (reload) RedrawLayers();
         }
 
         #region Draw
@@ -140,17 +140,19 @@ namespace Solar
             Core.MoveAll(SpaceObjs, speedUp);
             DrawOrbitAndPlanets(false);
             if (Finish()) Toggle();
-            if (SpaceObjs[_p1].Parent != null || SpaceObjs[_p2].Parent != null)
+            if (ShowTieLine())
             {
                 var g = Graphics.FromImage(TieImg);
                 g.Clear(Color.Transparent);
                 DrawLine(Core.GetPoint(SpaceObjs[_p1], PictureSize), Core.GetPoint(SpaceObjs[_p2], PictureSize), Color.White, g);
                 DrawTiePoint(SpaceObjs[_p1], SpaceObjs[_p2]);
             }
-            CombineLayers();
+            RedrawLayers();
         }
 
-        private void CombineLayers()
+        private bool ShowTieLine() => SpaceObjs[_p1].Parent != null || SpaceObjs[_p2].Parent != null;
+
+        private void RedrawLayers()
         {
             var final = new Bitmap(PictureSize, PictureSize);
             using (var g = Graphics.FromImage(final))
@@ -158,7 +160,7 @@ namespace Solar
                 g.Clear(Color.Black);
                 g.DrawImage(PlanetsImg, new Rectangle(0, 0, PictureSize, PictureSize));
                 g.DrawImage(TrajectoryImg, new Rectangle(0, 0, PictureSize, PictureSize));
-                if (timer1.Enabled) g.DrawImage(TieImg, new Rectangle(0, 0, PictureSize, PictureSize));
+                if (timer1.Enabled && ShowTieLine()) g.DrawImage(TieImg, new Rectangle(0, 0, PictureSize, PictureSize));
                 if (ShowOrbits) g.DrawImage(OrbitsImg, new Rectangle(0, 0, PictureSize, PictureSize));
             }
             picturePlanets.Image = final;
@@ -192,7 +194,7 @@ namespace Solar
                 Start.Text = "Play";
             }
 
-            CombineLayers();
+            RedrawLayers();
         }
 
 		#region Ticks and clicks
@@ -203,6 +205,7 @@ namespace Solar
         private void Clear_Click(object sender, EventArgs e)
         {
             Graphics.FromImage(TrajectoryImg).Clear(Color.Transparent);
+            if (!timer1.Enabled) RedrawLayers();
             TempPoint = null;
         }
 
@@ -215,7 +218,7 @@ namespace Solar
 		private void Orbits_Click(object sender, EventArgs e)
         {
             ShowOrbits = !ShowOrbits;
-            CombineLayers();
+            RedrawLayers();
         }
 
 		private void numericUpDown1_ValueChanged(object sender, EventArgs e)

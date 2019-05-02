@@ -239,10 +239,10 @@
             this.listbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listbox.ForeColor = System.Drawing.Color.White;
             this.listbox.FormattingEnabled = true;
-            this.listbox.Location = new System.Drawing.Point(700, 324);
+            this.listbox.Location = new System.Drawing.Point(700, 261);
             this.listbox.Margin = new System.Windows.Forms.Padding(0);
             this.listbox.Name = "listbox";
-            this.listbox.Size = new System.Drawing.Size(150, 147);
+            this.listbox.Size = new System.Drawing.Size(150, 210);
             this.listbox.TabIndex = 21;
             this.listbox.SelectedIndexChanged += new System.EventHandler(this.listbox_SelectedIndexChanged);
             // 
